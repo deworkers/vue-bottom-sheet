@@ -40,8 +40,8 @@ yarn add @deworkers/vue-bottom-sheet
 </template>
 
 <script setup>
-import VueBottomSheet from "@webzlodimir/vue-bottom-sheet";
-import  "@webzlodimir/vue-bottom-sheet/dist/style.css";
+import VueBottomSheet from "@deworkers/vue-bottom-sheet";
+import  "@deworkers/vue-bottom-sheet/dist/style.css";
 import { ref } from "vue";
 
 const myBottomSheet = ref(null)
@@ -70,8 +70,8 @@ const close = () => {
 </template>
 
 <script setup lang="ts">
-import VueBottomSheet from "@webzlodimir/vue-bottom-sheet";
-import  "@webzlodimir/vue-bottom-sheet/dist/style.css";
+import VueBottomSheet from "@deworkers/vue-bottom-sheet";
+import  "@deworkers/vue-bottom-sheet/dist/style.css";
 import { ref } from "vue";
 
 const myBottomSheet = ref<InstanceType<typeof VueBottomSheet>>()
@@ -111,6 +111,7 @@ For Nuxt 3, just wrap component in `<client-only>`
 | max-width           | Number  | Set max-width of component card in px                                                 | `:max-width="640"`             | 640       |
 | max-height          | Number  | Sets the maximum height of the window, if not set it takes the height of the content  | `:max-height="90"`             | -         |
 | can-swipe           | Boolean | Enable or disable swipe to close                                                      | `:can-swipe="false"`           | true      |
+| can-swipe-body      | Boolean | Enable or disable swipe main area to close                                            | `:can-swipe-body="false"`      | true      |
 | overlay             | Boolean | Enable overlay                                                                        | `:overlay="false"`             | true      |
 | overlay-color       | String  | Set overlay color with opacity                                                        | `overlay-color="#0000004D"`    | #0000004D |
 | overlay-click-close | Boolean | Close window on overlay click                                                         | `:overlay-click-close="false"` | true      |
