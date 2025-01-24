@@ -41,6 +41,7 @@ interface IProps {
   transitionDuration?: number
   overlayClickClose?: boolean
   canSwipe?: boolean
+  canSwipeBody?: boolean
 }
 
 /**
@@ -62,7 +63,8 @@ const props = withDefaults(defineProps<IProps>(), {
   maxWidth: 640,
   transitionDuration: 0.5,
   overlayClickClose: true,
-  canSwipe: true
+  canSwipe: true,
+  canSwipeBody: true
 })
 
 /**
@@ -201,7 +203,12 @@ const dragHandler = (event: IEvent, type: 'area' | 'main') => {
         }
       }
 
-      if (type === 'main' && event.type === 'pandown' && contentScroll.value === 0) {
+      if (
+        type === 'main' &&
+        event.type === 'pandown' &&
+        contentScroll.value === 0 &&
+        props.canSwipeBody
+      ) {
         translateValue.value = pixelToVh(event.deltaY)
       }
 

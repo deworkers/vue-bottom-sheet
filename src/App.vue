@@ -40,9 +40,17 @@
             v-model="canSwipe"
             checked
           />
-          <label class="form-check-label" for="canSwipe"
-          >Enable swipe to close</label
-          >
+          <label class="form-check-label" for="canSwipe">Enable swipe to close</label>
+        </div>
+        <div class="form-check form-switch mb-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="canSwipeBody"
+            v-model="canSwipeBody"
+            checked
+          />
+          <label class="form-check-label" for="canSwipeBody">Enable swipe body to close</label>
         </div>
       </div>
       <div class="col-md-4 col-12">
@@ -82,6 +90,7 @@
       :max-height="maxHeight"
       :overlay="overlay"
       :can-swipe="canSwipe"
+      :can-swipe-body="canSwipeBody"
       :overlay-color="overlayColorSelect"
       ref="myBottomSheet"
     >
@@ -164,6 +173,7 @@ const maxHeight = ref(640)
 const clickToClose = ref(true)
 const overlayColorSelect = ref('#0000004D')
 const canSwipe = ref(true)
+const canSwipeBody = ref(true)
 const myBottomSheet = ref(null)
 
 const open = () => {
