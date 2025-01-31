@@ -11,6 +11,24 @@
       <div ref="bottomSheetContent" :class="sheetContentClasses">
         <header ref="bottomSheetHeader" class="bottom-sheet__header">
           <div class="bottom-sheet__draggable-area" ref="bottomSheetDraggableArea">
+            <div class="bottom-sheet__draggable-close-button" @click="clickOnCloseButtonHandler">
+              ↓ свайп вниз <i>или</i>
+              <svg
+                width="10"
+                height="10"
+                viewBox="0 0 10 10"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M1 1L5 5M5 5L9 9M5 5L9 1M5 5L1 9"
+                  stroke="#EFF3F8"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
             <div class="bottom-sheet__draggable-thumb"></div>
           </div>
           <slot name="header" />
@@ -305,6 +323,13 @@ const clickOnOverlayHandler = () => {
 }
 
 /**
+ * Click on close button handler
+ */
+const clickOnCloseButtonHandler = () => {
+  close()
+}
+
+/**
  * Convert pixels to vh
  * @param pixel
  */
@@ -362,7 +387,6 @@ defineExpose({ open, close })
     display: flex;
     flex-direction: column;
     border-radius: 16px 16px 0 0;
-    background: #ffffff;
     overflow-y: hidden;
     transform: translate3d(0, v-bind('translateValueString'), 0);
     height: v-bind('sheetHeightString');
@@ -384,25 +408,43 @@ defineExpose({ open, close })
   &__draggable-area {
     width: 100%;
     margin: auto;
-    padding: 16px;
+    padding: 12px;
     cursor: grab;
   }
 
   &__draggable-thumb {
-    width: 40px;
-    height: 4px;
-    background: #333333;
+    width: 27px;
+    height: 3px;
+    background: #fff;
     border-radius: 8px;
     margin: 0 auto;
+  }
+
+  &__draggable-close-button {
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 12px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+      margin-left: 5px;
+    }
   }
 
   &__main {
     display: flex;
     flex-direction: column;
-    overflow-y: scroll;
+    overflow-y: auto;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     touch-action: auto !important;
+    background: #fff;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0 -1px 4px rgba(47, 53, 77, 0.25);
 
     &::-webkit-scrollbar {
       height: 8px;
