@@ -408,7 +408,7 @@ defineExpose({ open, close })
   &__draggable-area {
     width: 100%;
     margin: auto;
-    padding: 12px;
+    padding: 15px 0 10px;
     cursor: grab;
   }
 
@@ -423,7 +423,7 @@ defineExpose({ open, close })
   &__draggable-close-button {
     color: #fff;
     position: absolute;
-    top: -5px;
+    top: 0px;
     right: 10px;
     cursor: pointer;
     font-size: 12px;
