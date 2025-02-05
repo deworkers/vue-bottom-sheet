@@ -348,11 +348,6 @@ defineExpose({ open, close })
 <style lang="scss" scoped>
 .bottom-sheet {
   z-index: 99999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -386,15 +381,17 @@ defineExpose({ open, close })
   &__content {
     display: flex;
     flex-direction: column;
+    align-items: center;
     border-radius: 16px 16px 0 0;
     overflow-y: hidden;
     transform: translate3d(0, v-bind('translateValueString'), 0);
     height: v-bind('sheetHeightString');
     max-width: v-bind('maxWidthString');
-    width: 100%;
     max-height: v-bind('maxHeightString');
     box-sizing: border-box;
     pointer-events: all;
+    position: fixed;
+    bottom: 0;
 
     &--fullscreen {
       border-radius: 0;
@@ -403,6 +400,12 @@ defineExpose({ open, close })
     &:not(.bottom-sheet__content--dragging) {
       transition: v-bind('transitionDurationString') ease;
     }
+  }
+
+  &__header {
+    max-width: v-bind('maxWidthString');
+    width: 100%;
+    position: relative;
   }
 
   &__draggable-area {
@@ -445,6 +448,8 @@ defineExpose({ open, close })
     background: #fff;
     border-radius: 8px 8px 0 0;
     box-shadow: 0 -1px 4px rgba(47, 53, 77, 0.25);
+    max-width: v-bind('maxWidthString');
+    width: 100%;
 
     &::-webkit-scrollbar {
       height: 8px;
@@ -475,5 +480,14 @@ defineExpose({ open, close })
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+
+@media (min-width: 641px) {
+  .bottom-sheet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }
 </style>
