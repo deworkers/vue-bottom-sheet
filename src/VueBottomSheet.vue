@@ -449,7 +449,7 @@ defineExpose({ open, close })
     border-radius: 8px 8px 0 0;
     box-shadow: 0 -1px 4px rgba(47, 53, 77, 0.25);
     max-width: v-bind('maxWidthString');
-    width: 100%;
+    width: 100vw;
 
     &::-webkit-scrollbar {
       height: 8px;
