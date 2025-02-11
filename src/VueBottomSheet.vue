@@ -11,8 +11,12 @@
       <div ref="bottomSheetContent" :class="sheetContentClasses">
         <header ref="bottomSheetHeader" class="bottom-sheet__header">
           <div class="bottom-sheet__draggable-area" ref="bottomSheetDraggableArea">
-            <div class="bottom-sheet__draggable-close-button" @click="clickOnCloseButtonHandler">
-              ↓ свайп вниз <i>или</i>
+            <div
+              v-if="showCloseButton"
+              @click="clickOnCloseButtonHandler"
+              class="bottom-sheet__draggable-close-button"
+            >
+              <span v-html="closeButtonContent"></span>
               <svg
                 width="10"
                 height="10"
@@ -54,12 +58,15 @@ import Hammer from 'hammerjs'
 interface IProps {
   overlay?: boolean
   overlayColor?: string
+  contentColor?: string
   maxWidth?: number
   maxHeight?: number
   transitionDuration?: number
   overlayClickClose?: boolean
   canSwipe?: boolean
   canSwipeBody?: boolean
+  showCloseButton?: boolean
+  closeButtonContent?: string
 }
 
 /**
@@ -78,11 +85,14 @@ interface IEvent {
 const props = withDefaults(defineProps<IProps>(), {
   overlay: true,
   overlayColor: '#0000004D',
+  contentColor: '#ffffff',
   maxWidth: 640,
   transitionDuration: 0.5,
   overlayClickClose: true,
   canSwipe: true,
-  canSwipeBody: true
+  canSwipeBody: true,
+  showCloseButton: true,
+  closeButtonContent: '↓ свайп вниз <i>или</i>'
 })
 
 /**
@@ -445,7 +455,7 @@ defineExpose({ open, close })
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     touch-action: auto !important;
-    background: #fff;
+    background: v-bind('props.contentColor');
     border-radius: 8px 8px 0 0;
     box-shadow: 0 -1px 4px rgba(47, 53, 77, 0.25);
     max-width: v-bind('maxWidthString');

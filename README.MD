@@ -106,17 +106,19 @@ For Nuxt 3, just wrap component in `<client-only>`
 
 ## Props
 
-| Prop                | Type    | Description                                                                           | Example                        | Defaults  |
-|---------------------|---------|---------------------------------------------------------------------------------------|--------------------------------|-----------|
-| max-width           | Number  | Set max-width of component card in px                                                 | `:max-width="640"`             | 640       |
-| max-height          | Number  | Sets the maximum height of the window, if not set it takes the height of the content  | `:max-height="90"`             | -         |
-| can-swipe           | Boolean | Enable or disable swipe to close                                                      | `:can-swipe="false"`           | true      |
-| can-swipe-body      | Boolean | Enable or disable swipe main area to close                                            | `:can-swipe-body="false"`      | true      |
-| overlay             | Boolean | Enable overlay                                                                        | `:overlay="false"`             | true      |
-| overlay-color       | String  | Set overlay color with opacity                                                        | `overlay-color="#0000004D"`    | #0000004D |
-| overlay-click-close | Boolean | Close window on overlay click                                                         | `:overlay-click-close="false"` | true      |
-| transition-duration | Number  | Transition animation duration                                                         | `:transition-duration="0.5"`   | 0.5       |
-
+| Prop                | Type    | Description                                                                           | Example                          | Defaults  |
+|---------------------|---------|---------------------------------------------------------------------------------------|----------------------------------|-----------|
+| max-width           | Number  | Set max-width of component card in px                                                 | `:max-width="640"`               | 640       |
+| max-height          | Number  | Sets the maximum height of the window, if not set it takes the height of the content  | `:max-height="90"`               | -         |
+| can-swipe           | Boolean | Enable or disable swipe to close                                                      | `:can-swipe="false"`             | true      |
+| can-swipe-body      | Boolean | Enable or disable swipe main area to close                                            | `:can-swipe-body="false"`        | true      |
+| overlay             | Boolean | Enable overlay                                                                        | `:overlay="false"`               | true      |
+| overlay-color       | String  | Set overlay color with opacity                                                        | `overlay-color="#0000004D"`      | #0000004D |
+| content-color       | String  | Set content color                                                                     | `content-color="#DDD"`           | #FFFFFF   |
+| overlay-click-close | Boolean | Close window on overlay click                                                         | `:overlay-click-close="false"`   | true      |
+| transition-duration | Number  | Transition animation duration                                                         | `:transition-duration="0.5"`     | 0.5       |
+| show-close-button   | Boolean | Show close button                                                                     | `:show-close-button="false"`     | true      |
+| close-button-content| String  | Close button text (as HTML string)                                                    | `:close-button-content="'Сlose'"`| "Закрыть" |
 ## Events
 
 | Event         | Description                               | Example               |

@@ -52,6 +52,16 @@
           />
           <label class="form-check-label" for="canSwipeBody">Enable swipe body to close</label>
         </div>
+        <div class="form-check form-switch mb-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="showCloseButton"
+            v-model="showCloseButton"
+            checked
+          />
+          <label class="form-check-label" for="showCloseButton">Show close button</label>
+        </div>
       </div>
       <div class="col-md-4 col-12">
         <div class="mb-3">
@@ -92,6 +102,8 @@
       :can-swipe="canSwipe"
       :can-swipe-body="canSwipeBody"
       :overlay-color="overlayColorSelect"
+      :show-close-button="showCloseButton"
+      :closeButtonContent="'Close'"
       ref="myBottomSheet"
     >
       <div class="sheet-content">
@@ -121,6 +133,7 @@ const overlayColorSelect = ref('#0000004D')
 const canSwipe = ref(true)
 const canSwipeBody = ref(true)
 const myBottomSheet = ref(null)
+const showCloseButton = ref(true)
 
 const open = () => {
   myBottomSheet.value.open()
